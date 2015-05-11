@@ -1,9 +1,9 @@
 <?php
 
-$username = 'adu2';
-$password = 'ada31094719';
-$hostname = 'sql1.njit.edu';
-$dbname = 'adu2';
+$username = 'lnn2';
+$password = 'YgldurL4p';
+$hostname = 'sql2.njit.edu';
+$dbname = 'lnn2';
 
 $link = mysql_connect($hostname, $username, $password);
 if (!$link) {
@@ -11,7 +11,7 @@ if (!$link) {
 }
 mysql_select_db ($username, $link); 
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 15` AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLW DESC LIMIT 5";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE B` AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLW DESC LIMIT 5";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -24,7 +24,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 15` AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLM DESC LIMIT 5";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE B` AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLM DESC LIMIT 5";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "Database Error, could not query the database\n";
@@ -37,7 +37,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID ORDER BY b.F1H02 DESC LIMIT 5";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID ORDER BY b.F1H02 DESC LIMIT 5";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -50,7 +50,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 15` AS b ON a.UNITID=b.UNITID WHERE b.LSTUDY = 1 ORDER BY b.EFTOTLT DESC LIMIT 5";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE B` AS b ON a.UNITID=b.UNITID WHERE b.LSTUDY = 1 ORDER BY b.EFTOTLT DESC LIMIT 5";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -63,7 +63,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID ORDER BY b.F1B01 DESC LIMIT 5";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID ORDER BY b.F1B01 DESC LIMIT 5";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -76,7 +76,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID ORDER BY b.F1B09 DESC LIMIT 5";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID ORDER BY b.F1B09 DESC LIMIT 5";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -92,7 +92,7 @@ echo "<br />";
 //Region 0
 echo 'Region 0, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -105,7 +105,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -118,7 +118,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -131,7 +131,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -144,7 +144,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -160,7 +160,7 @@ echo "<br />";
 //Region 1
 echo 'Region 1, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -173,7 +173,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -186,7 +186,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -199,7 +199,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -212,7 +212,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -228,7 +228,7 @@ echo "<br />";
 //Region 2
 echo 'Region 2, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -241,7 +241,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -254,7 +254,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -267,7 +267,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -280,7 +280,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -296,7 +296,7 @@ echo "<br />";
 //Region 3
 echo 'Region 3, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -309,7 +309,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -322,7 +322,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -335,7 +335,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -348,7 +348,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -364,7 +364,7 @@ echo "<br />";
 //Region 4
 echo 'Region 4, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -377,7 +377,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -390,7 +390,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -403,7 +403,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -416,7 +416,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -432,7 +432,7 @@ echo "<br />";
 //Region 5
 echo 'Region 5, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -445,7 +445,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -458,7 +458,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -471,7 +471,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -484,7 +484,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -500,7 +500,7 @@ echo "<br />";
 //Region 6
 echo 'Region 6, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -513,7 +513,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -526,7 +526,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -539,7 +539,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -552,7 +552,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6   ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6   ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -568,7 +568,7 @@ echo "<br />";
 //Region 7
 echo 'Region 7, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -581,7 +581,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -594,7 +594,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -607,7 +607,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -620,7 +620,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -636,7 +636,7 @@ echo "<br />";
 //Region 8
 echo 'Region 8, The top 10 colleges for the following statistics: <br />';
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1A01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1A01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -649,7 +649,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1H01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1H01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -662,7 +662,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1A09 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1A09 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -675,7 +675,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1B01 ASC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1B01 ASC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -688,7 +688,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 echo "<br />";
 
-$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1B01 DESC LIMIT 10";
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE A` AS a INNER JOIN `TABLE C` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1B01 DESC LIMIT 10";
 $result = mysql_query($sql,$link);
 if (!$result) {
     echo "DB Error, could not query the database\n";
@@ -713,7 +713,7 @@ if ($conn->connect_error) {
   trigger_error('Database connection failed: '  . $conn->connect_error, E_USER_ERROR);
 }
 
-$sql = "SELECT INSTNM FROM 'TABLE 12' AS a INNER JOIN 'TABLE 15' AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLW DESC LIMIT 5";
+$sql = "SELECT INSTNM FROM 'TABLE A' AS a INNER JOIN 'TABLE B' AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLW DESC LIMIT 5";
 $rs=$conn->query($sql);
 if($rs === false) {
   trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
