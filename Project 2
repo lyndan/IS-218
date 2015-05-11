@@ -1,0 +1,780 @@
+<?php
+
+$username = 'adu2';
+$password = 'ada31094719';
+$hostname = 'sql1.njit.edu';
+$dbname = 'adu2';
+
+$link = mysql_connect($hostname, $username, $password);
+if (!$link) {
+    die('Could not connect: ' . mysql_error());
+}
+mysql_select_db ($username, $link); 
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 15` AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLW DESC LIMIT 5";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Colleges with the highest percentage of women students<br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 15` AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLM DESC LIMIT 5";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "Database Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Colleges with the highest percentage of men students<br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID ORDER BY b.F1H02 DESC LIMIT 5";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Colleges with the largest endowment overall<br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 15` AS b ON a.UNITID=b.UNITID WHERE b.LSTUDY = 1 ORDER BY b.EFTOTLT DESC LIMIT 5";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Colleges with the largest enrollment of freshman<br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID ORDER BY b.F1B01 DESC LIMIT 5";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Colleges with the highest revenue from tuition<br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID ORDER BY b.F1B09 DESC LIMIT 5";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Colleges with the lowest non zero tuition revenue<br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 0
+echo 'Region 0, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 0 ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 1
+echo 'Region 1, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 1 ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 2
+echo 'Region 2, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 2 ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 3
+echo 'Region 3, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 3 ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 4
+echo 'Region 4, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 4 ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 5
+echo 'Region 5, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 5 ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 6
+echo 'Region 6, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 6   ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 7
+echo 'Region 7, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 7 ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+//Region 8
+echo 'Region 8, The top 10 colleges for the following statistics: <br />';
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1A01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Assets: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1H01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Endowment: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1A09 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Total Current Liabilities: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1B01 ASC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Lowest non-zero tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+$sql = "SELECT DISTINCT INSTNM FROM `TABLE 12` AS a INNER JOIN `TABLE 20` AS b ON a.UNITID=b.UNITID WHERE `OBEREG` = 8 ORDER BY b.F1B01 DESC LIMIT 10";
+$result = mysql_query($sql,$link);
+if (!$result) {
+    echo "DB Error, could not query the database\n";
+    echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+echo "Highest tuition: <br />";
+while ($row = mysql_fetch_assoc($result)) {
+    echo $row['INSTNM']." <br />";
+}
+echo "<br />";
+
+
+mysql_close($link);
+/*
+$conn = new mysqli($hostname, $username, $password, $dbname);
+
+
+
+// check connection
+if ($conn->connect_error) {
+  trigger_error('Database connection failed: '  . $conn->connect_error, E_USER_ERROR);
+}
+
+$sql = "SELECT INSTNM FROM 'TABLE 12' AS a INNER JOIN 'TABLE 15' AS b ON a.UNITID=b.UNITID ORDER BY b.EFTOTLW DESC LIMIT 5";
+$rs=$conn->query($sql);
+if($rs === false) {
+  trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
+} else {
+  $rows_returned = $rs->num_rows;
+}
+
+echo $rows_returned;
+*/
+/*
+echo 'hello';
+
+$dbhandle = mysql_connect($hostname, $username, $password) 
+  or die("Unable to connect to MySQL");
+
+$selected = mysql_select_db("ye7",$dbhandle) 
+  or die("Could not select examples");
+
+$result = mysql_query("select * from salaries join employees on employees.emp_no=salaries.emp_no order by salary desc limit 1");
+while ($row = mysql_fetch_array($result)) {
+   echo $row{'emp_no'}." ".$row{'salary'}." ".$row{'from_date'}." ".$row{'to_date'}." "$row{'from_date'}." "$row{'birth_date'}." "$row{'first_name'}." "$row{'last_name'}." "$row{'gender'}." "$row{'hire_date'};
+}
+
+$result = mysql_query("select * employees.*,salaries.salary,salaries.from_date,salaries.to_date from salaries join employees on salaries.emp_no = employees.emp_no where salaries.from_date='1981-01-01' and salaries.to_date<='1985-12-31' order by salaries.salary DESC LIMIT 1");
+while ($row = mysql_fetch_array($result)) {
+	echo $row{'emp_no'}." ".$row{'birth_date'}." ".$row{'first_name'}." ".$row{'last_name'}." ".$row{'gender'}." ".$row{'hire_date'}." ".$row{'salary'}." ".$row{'from_date'}." ".$row{'to_date'};
+}
+
+$result = mysql_query("select departments.dept_name, employees.first_name, employees.last_name, salaries.salary FROM dept_manager JOIN (employees, salaries,departments) ON (employees.emp_no=dept_manager.emp_no and salaries.emp_no=dept_manager.em AND salaries.to_date)");
+while ($row = mysql_fetch_array($result)) {
+	echo $row{'dept_name'}." ".$row{'first_name'}." ".$row{'last_name'}." ".$row{'salary'};
+}
+
+$result = mysql_query("select dept_name from departments order by department.dept_name ASC");
+while($row = mysql_fetch_array($result)){
+	echo $row{'dept_name'};
+}
+
+$result = mysql_query("select employees.*,department.dept_name from departments join (dept_manager,employees) on (dept_manager.dept_no=departments.dept_no and employees.emp_no=dept_manager.emp_no) where to_date=
+	'9999-01-01' order by departments.dept_name ASC");
+while($row = mysql_fetch_array($result)){
+	echo $row{'emp_no'}." ".{'birth_date'}." ".{'first_name'}." ".{'last_name'}." ".{'gender'}." ".{"hire_date"}." ".{'dept_name'};
+}
+
+$result = mysql_query("select employees.*,salaries.salary from employees join salaries on employees.emp_no=salaries.emp_no left join dept_manager on employees.emp_no=dept_manager.emp_no where salaries.to_date='9999-01-01' order by salaries.salary des limit 1");
+while($row = mysql_fetch_array($result)){
+	echo $row{'emp_no'}." ".{'birth_date'}." ".{'first_name'}." ".{'last_name'}." ".{'gender'}." ".{'hire_date'}." ".{'salary'};
+}
+
+$result = mysql_query("select count(*) as num_employees,departments.dept_name from dept_emp join departments on (departments.dept_no = dept_emp.dept_no) where to_date = '9999-01-01' group by dept_emp.dept_no ASC");
+while($row = mysql_fetch_array($result)){
+	echo $row{'num_employees'}." ".{'dept_name'};
+}
+
+$result = mysql_query("select departments.dept_name,format(sum(salary),2)as total from dept_emp join (salaries,departments) on (salaries.emp_no=dept_emp.emp_no and departments.dept_no=dept_emp.dept_no) where dept_emp.to_date='9999-01-01' and salaries.to_date='9999-01-01' group by dept_emp.dept_no order by departments.dept_name");
+while($row = mysql_fetch_array($result)){
+	echo $row{'dept_name'}." ".{'total'};
+}
+
+$result = mysql_query("select format(sum(salary),2) as total from  salaries where salaries.to_date ->");
+while($row = mysql_fetch_array(result)){	
+	echo $row{'total'};
+}*/
+?>
