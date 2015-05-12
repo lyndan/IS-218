@@ -1,0 +1,99 @@
+<?php
+$servername = "sql2.njit.edu";
+$username = "lnn2";
+$password = "YgldurL4p";
+$dbname = "lnn2";
+
+// Create connection
+$conn = new mysql($servername, $username, $password);
+// Check connection
+if (!$conn) {
+    die('Connection failed: ' . mssql_get_last_message());
+} 
+$db_selected = mssql_select_db($dbname, $conn);
+if (!$db_selected)
+{
+die ('Can\'t use db : ' . mssql_get_last_message());
+}
+
+//Select Institution with highest percentage of women
+$sql = "SELECT DISTINCT INSTNM 
+FROM `TABLE A` AS a 
+INNER JOIN `TABLE B` AS b 
+ON a.UNITID=b.UNITID 
+ORDER BY b.EFTOTLW DESC LIMIT 10";
+$result = mysql_query($conn, $sql);
+if (!$result) {
+echo "Database Error, could not query the database\n";
+ 
+echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+
+//Select Institution with highest percentage of men
+$sql = "SELECT DISTINCT INSTNM 
+FROM `TABLE A` AS a 
+INNER JOIN `TABLE B` AS b 
+ON a.UNITID=b.UNITID 
+ORDER BY b.EFTOTLM DESC LIMIT 10";
+$result = mysql_query($conn, $sql);
+if (!$result) {
+echo "Database Error, could not query the database\n";
+ 
+echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+
+//Select Institution with highest endowment overall
+FROM `TABLE A` AS a 
+INNER JOIN `TABLE C` AS c 
+ON a.UNITID=c.UNITID 
+ORDER BY c.F1H02 DESC LIMIT 10";
+$result = mysql_query($conn, $sql);
+if (!$result) {
+echo "Database Error, could not query the database\n";
+ 
+echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+
+//Select Institution with highest enrollment of Freshmen
+INNER JOIN `TABLE B` AS b
+ON a.UNITID=b.UNITID
+WHERE b.LSTUDY = 1 
+ORDER BY b.EFTOTLT DESC LIMIT 10";
+$result = mysql_query($conn, $sql);
+if (!$result) {
+echo "Database Error, could not query the database\n";
+ 
+echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+
+//Select Institution with highest revenue from tuition
+FROM `TABLE A` AS a 
+INNER JOIN `TABLE C` AS c 
+ON a.UNITID=c.UNITID 
+ORDER BY c.F1B01 DESC LIMIT 10";
+$result = mysql_query($conn, $sql);
+if (!$result) {
+echo "Database Error, could not query the database\n";
+ 
+echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+
+//Select Institution with the lowest non zero tuition revenue
+FROM `TABLE A` AS a 
+INNER JOIN `TABLE C` AS c 
+ON a.UNITID=c.UNITID 
+ORDER BY c.F1b09 DESC LIMIT 10";
+$result = mysql_query($conn, $sql);
+if (!$result) {
+echo "Database Error, could not query the database\n";
+ 
+echo 'MySQL Error: ' . mysql_error();
+    exit;
+}
+
+?>
